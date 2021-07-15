@@ -56,14 +56,25 @@ function retrieve(sampleID) {
             labels: otu_labels,
         };
 
-        barChart(results);
+        horizbarChart(results);
         bubbleChart(results);
         gaugeChart(gauge);
         generateTable(testTable);
     });
 }
 
+// Working on horizontal bar chart
+function horizbarChart(results) {
+    console.log("bar chart");
+    // console.log(results);
+    let otu_ids = results.idStr.slice(0, 10);
+    let sample_values = results.values.slice(0, 10);
+    let otu_labels = results.labels.slice(0, 10);
+    let otuNumID = results.ids.slice(0, 10);
+    let colors = [];
+    for (let i = 0; i < sample_values.length; i++) {
+      colors.push("rgb(0,0," + (1 - sample_values[i] / 180) + ")");
+    }
+   
+
 init();
-
-
-
