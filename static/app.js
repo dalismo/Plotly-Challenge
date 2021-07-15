@@ -6,7 +6,9 @@ Feel free to disregard and create your own code */
 function init() {
 
     // Read json data
-    d3.json("static/samples.json").then
+    d3.json("samples.json").then((data) => {
+        
+    }
 
         // Parse and filter data to get sample names
 
