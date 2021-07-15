@@ -19,21 +19,51 @@ function init() {
 
 function retrieve(sampleID) {
     d3.json("samples.json").then(function (jsonData) {
-      console.log("1. retrieve data");
-      let data = jsonData;
-  
-      let testSample = data.samples.filter((val) => val.id == sampleID);
-      //console.log(testSample;
+        console.log("1. retrieve data");
+        let data = jsonData;
 
-      let testSampleObj = testSample[0];
-      //console.log(testSampleObj);
-  
-      let otu_ids = testSampleObj.otu_ids;
-      //console.log(otu_ids);
-  
-      let otu_idList = [];
-      for (let i = 0; i < otu_ids.length; i++) {
-        otu_idList.push(`OTU# ${otu_ids[i]}`);
-      }
-  
+        let testSample = data.samples.filter((val) => val.id == sampleID);
+        //console.log(testSample;
+
+        let testSampleObj = testSample[0];
+        //console.log(testSampleObj);
+
+        let otu_ids = testSampleObj.otu_ids;
+        //console.log(otu_ids);
+
+        let otu_idList = [];
+        for (let i = 0; i < otu_ids.length; i++) {
+            otu_idList.push(`OTU# ${otu_ids[i]}`);
+        }
+
+        let sample_values = testSampleObj.sample_values;
+        //console.log(sample_values);
+
+        let otu_labels = testSampleObj.otu_labels;
+        //console.log(otu_labels);
+
+        let testTable = data.metadata.filter((val) => val.id == sampleID);
+        testTable = testTable[0];
+        console.log(testTable);
+
+        let gauge = Object.values(testTable)[6];
+        console.log(gauge);
+
+        let results = {
+            idStr: otu_idList,
+            ids: otu_ids,
+            values: sample_values,
+            labels: otu_labels,
+        };
+
+        barChart(results);
+        bubbleChart(results);
+        gaugeChart(gauge);
+        generateTable(testTable);
+    });
+}
+
+init();
+
+
 
