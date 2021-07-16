@@ -93,6 +93,23 @@ let trace = {
     type:"bar",
 };
 
+let plotting = [trace];
+
+let layout = {
+    hoverinfo: otu_labels
+    title:{
+        text:"Belly Button Top Ten Microbials"
+        font: {
+            size: 16,
+            xanchor: "left",
+            yanchor: "top",
+        },
+    },
+
+    }
+
+}
+
 
 
 
