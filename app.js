@@ -59,7 +59,7 @@ function retrieve(sampleID) {
         horizbarChart(results);
         bubbleChart(results);
         gaugeChart(gauge);
-        generateTable(testTable);
+        demoTable(testTable);
     });
 }
 
@@ -175,7 +175,13 @@ function bubbleChart(results) {
 }
 
 // Starting to work on demographic pulling of data
+function demoTable(testTable) {
+    let panel = document.getElementsByClassName("panel-body")[0];
+    let table = document.createElement("table");
+    table.setAttribute("id", "table");
 
+    // console.log(table);
+}
 
 
 init();
