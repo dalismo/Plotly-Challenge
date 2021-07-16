@@ -214,5 +214,14 @@ function demoTable(testTable) {
     panel.appendChild(panel);
 }
 
-
 init();
+
+d3.selectAll("#selDataset").on("change", idChanged);
+
+function idChanged() {
+  let sampleID = d3.select("#selDataset").node().value;
+
+  d3.selectAll("#table").remove();
+
+  retrieve(sampleID);
+}
