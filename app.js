@@ -128,7 +128,41 @@ function horizbarChart(results) {
     Plotly.newPlot("bar", plotting, layout, config);
 }
 
+// Working on bubble chart
+function bubbleChart(results) {
+    let otu_ids = results.ids;
+    let sample_values = results.values;
+    let otu_labels = results.labels;
+  
+    var trace1 = {
+      x: otu_ids,
+      y: sample_values,
+      mode: "markers",
+      text: otu_labels,
+      marker: {
+        size: sample_values,
+        color: otu_ids,
+      },
+    };
 
+    let data = [trace1];
+
+    let layout = {
+        title: "OTU ID vs Sample Value",
+        font: {
+            family:"Overpass, Open Sans, Raleway",
+        },
+        showlegend: false,
+        height: 600,
+        width: 1200,
+    };
+
+    let configuration = {
+        responsive: true,
+    };
+
+    Plotly.newPlot("bubble", data, layout, configuration);
+}
 
 
 
