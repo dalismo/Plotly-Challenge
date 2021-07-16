@@ -181,6 +181,14 @@ function demoTable(testTable) {
     table.setAttribute("id", "table");
 
     // console.log(table);
+
+    let tableStats = document.createElement('tbody')
+
+    Object.entries(testTable).forEach(function([key, value]) {
+
+        // console.log(key, value);
+
+    })
 }
 
 
