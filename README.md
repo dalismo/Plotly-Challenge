@@ -1,3 +1,5 @@
+https://dalismo.github.io/Plotly-Challenge/
+
 # Plot.ly Homework - Belly Button Biodiversity
 
 ![image](https://user-images.githubusercontent.com/78628287/125804355-9f4da7ed-67af-4ca8-8a1d-34054751f98a.png)
