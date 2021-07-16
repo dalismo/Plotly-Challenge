@@ -155,6 +155,16 @@ function bubbleChart(results) {
         showlegend: false,
         height: 600,
         width: 1200,
+
+        xaxis: {
+            title: {
+                text: "OTU ID",
+                font: {
+                    family:"Overpass, Open Sans, Raleway",
+                    size: 15,
+                }
+            }
+        }
     };
 
     let configuration = {
@@ -164,6 +174,7 @@ function bubbleChart(results) {
     Plotly.newPlot("bubble", data, layout, configuration);
 }
 
+// Starting to work on demographic pulling of data
 
 
 
