@@ -195,7 +195,23 @@ function demoTable(testTable) {
         key_cell.style.padding = "10px";
         key_cell.style.fontSize = "16";
 
-    })
+        let key_text = document.createTextNode(`${key}:`);
+        key_cell.appendChild(key_text);
+        row.appendChild(key_cell);
+    
+        let value_cell = document.createElement("td");
+        value_cell.style.padding = "10px";
+        value_cell.style.fontSize = "16";
+        let value_text = document.createTextNode(`${value}`);
+        value_cell.appendChild(value_text);
+        row.appendChild(value_cell);
+    
+        tableStats.append(row);
+
+    });
+
+    table.appendChild(tableStats);
+    panel.appendChild(panel);
 }
 
 
