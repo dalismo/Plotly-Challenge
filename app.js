@@ -75,6 +75,27 @@ function horizbarChart(results) {
     for (let i = 0; i < sample_values.length; i++) {
       colors.push("rgb(0,0," + (1 - sample_values[i] / 180) + ")");
     }
+
+// console.log(sample_values)
+
+//assigning values to bar charts
+let trace = {
+    x: sample_values,
+    y: otu_ids,
+    mode: "markers",
+    markers: {
+        color: colors,
+        line: {
+            width: 1,
+        },
+    },
+    orientation: "h",
+    type:"bar",
+};
+
+
+
+
    
 
 init();
