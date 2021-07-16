@@ -188,16 +188,16 @@ function demoTable(testTable) {
 
         let key_cell = document.createElement("td");
         key_cell.style.fontWeight = "bold";
-        key_cell.style.padding = "10px";
-        key_cell.style.fontSize = "16";
+        key_cell.style.padding = "2px";
+        key_cell.style.fontSize = "9";
 
         let key_text = document.createTextNode(`${key}:`);
         key_cell.appendChild(key_text);
         row.appendChild(key_cell);
 
         let value_cell = document.createElement("td");
-        value_cell.style.padding = "10px";
-        value_cell.style.fontSize = "16";
+        value_cell.style.padding = "2px";
+        value_cell.style.fontSize = "9";
         let value_text = document.createTextNode(`${value}`);
         value_cell.appendChild(value_text);
         row.appendChild(value_cell);
