@@ -73,46 +73,64 @@ function horizbarChart(results) {
     let otuNumID = results.ids.slice(0, 10);
     let colors = [];
     for (let i = 0; i < sample_values.length; i++) {
-      colors.push("rgb(0,0," + (1 - sample_values[i] / 180) + ")");
+        colors.push("rgb(0,0," + (1 - sample_values[i] / 180) + ")");
     }
 
-// console.log(sample_values)
+    // console.log(sample_values)
 
-//assigning values to bar charts
-let trace = {
-    x: sample_values,
-    y: otu_ids,
-    mode: "markers",
-    markers: {
-        color: colors,
-        line: {
-            width: 1,
+    //assigning values to bar charts
+    let trace = {
+        x: sample_values,
+        y: otu_ids,
+        mode: "markers",
+        markers: {
+            color: colors,
+            line: {
+                width: 1,
+            },
         },
-    },
-    orientation: "h",
-    type:"bar",
-};
+        orientation: "h",
+        type: "bar",
+    };
 
-let plotting = [trace];
+    let plotting = [trace];
 
-let layout = {
-    hoverinfo: otu_labels
-    title:{
-        text:"Belly Button Top Ten Microbials"
-        font: {
-            size: 16,
-            xanchor: "left",
-            yanchor: "top",
+    let layout = {
+        hoverinfo: otu_labels,
+        title: {
+            text: "Belly Button Top Ten Microbials",
+            font: {
+                size: 16,
+                xanchor: "left",
+                yanchor: "top",
+            },
         },
-    },
+        autosize: false,
+        width: 375,
+        height: 550,
+        margin: {
+            l: 50,
+            r: 50,
+            b: 100,
+            t: 100,
+            pad: 4,
+        },
+        yaxis: {
+            autorange: "reversed",
+            automargin: true,
+        },
+    };
 
-    }
+    let config = {
+        responsive: true,
+    };
 
+    Plotly.newPlot("bar", plotting, layout, config);
 }
 
 
 
 
-   
+
 
 init();
