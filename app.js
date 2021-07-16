@@ -188,6 +188,13 @@ function demoTable(testTable) {
 
         // console.log(key, value);
 
+        let row = document.createElement("tr");
+
+        let key_cell = document.createElement("td");
+        key_cell.style.fontWeight = "bold";
+        key_cell.style.padding = "10px";
+        key_cell.style.fontSize = "16";
+
     })
 }
 
