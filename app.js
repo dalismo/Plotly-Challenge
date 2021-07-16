@@ -98,8 +98,9 @@ function horizbarChart(results) {
     let layout = {
         hoverinfo: otu_labels,
         title: {
-            text: "Belly Button Top Ten Microbials",
+            text: "BELLY BUTTON TOP 10 MICROBIALS",
             font: {
+                family: "Overpass, Open Sans, Raleway",
                 size: 16,
                 xanchor: "left",
                 yanchor: "top",
@@ -148,9 +149,10 @@ function bubbleChart(results) {
     let data = [trace1];
 
     let layout = {
-        title: "OTU ID vs Sample Value",
+        title: "OTU ID vs SAMPLE VALUE",
         font: {
             family:"Overpass, Open Sans, Raleway",
+            size: 16,
         },
         showlegend: false,
         height: 600,
@@ -161,7 +163,7 @@ function bubbleChart(results) {
                 text: "OTU ID",
                 font: {
                     family:"Overpass, Open Sans, Raleway",
-                    size: 15,
+                    size: 16,
                 }
             }
         }
