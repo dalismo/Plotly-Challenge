@@ -44,10 +44,7 @@ function retrieve(sampleID) {
 
         let testTable = data.metadata.filter((val) => val.id == sampleID);
         testTable = testTable[0];
-        console.log(testTable);
-
-        let gauge = Object.values(testTable)[6];
-        console.log(gauge);
+        // console.log(testTable);
 
         let results = {
             idStr: otu_idList,
@@ -58,7 +55,6 @@ function retrieve(sampleID) {
 
         horizbarChart(results);
         bubbleChart(results);
-        gaugeChart(gauge);
         demoTable(testTable);
     });
 }
@@ -134,16 +130,16 @@ function bubbleChart(results) {
     let otu_ids = results.ids;
     let sample_values = results.values;
     let otu_labels = results.labels;
-  
+
     var trace1 = {
-      x: otu_ids,
-      y: sample_values,
-      mode: "markers",
-      text: otu_labels,
-      marker: {
-        size: sample_values,
-        color: otu_ids,
-      },
+        x: otu_ids,
+        y: sample_values,
+        mode: "markers",
+        text: otu_labels,
+        marker: {
+            size: sample_values,
+            color: otu_ids,
+        },
     };
 
     let data = [trace1];
@@ -151,7 +147,7 @@ function bubbleChart(results) {
     let layout = {
         title: "OTU ID vs SAMPLE VALUE",
         font: {
-            family:"Overpass, Open Sans, Raleway",
+            family: "Overpass, Open Sans, Raleway",
             size: 16,
         },
         showlegend: false,
@@ -162,7 +158,7 @@ function bubbleChart(results) {
             title: {
                 text: "OTU ID",
                 font: {
-                    family:"Overpass, Open Sans, Raleway",
+                    family: "Overpass, Open Sans, Raleway",
                     size: 16,
                 }
             }
@@ -172,7 +168,6 @@ function bubbleChart(results) {
     let configuration = {
         responsive: true,
     };
-
     Plotly.newPlot("bubble", data, layout, configuration);
 }
 
@@ -184,10 +179,9 @@ function demoTable(testTable) {
 
     // console.log(table);
 
-    let tableStats = document.createElement('tbody')
+    let tableStats = document.createElement('tbody');
 
-    Object.entries(testTable).forEach(function([key, value]) {
-
+    Object.entries(testTable).forEach(function ([key, value]) {
         // console.log(key, value);
 
         let row = document.createElement("tr");
@@ -200,20 +194,20 @@ function demoTable(testTable) {
         let key_text = document.createTextNode(`${key}:`);
         key_cell.appendChild(key_text);
         row.appendChild(key_cell);
-    
+
         let value_cell = document.createElement("td");
         value_cell.style.padding = "10px";
         value_cell.style.fontSize = "16";
         let value_text = document.createTextNode(`${value}`);
         value_cell.appendChild(value_text);
         row.appendChild(value_cell);
-    
+
         tableStats.append(row);
 
     });
 
     table.appendChild(tableStats);
-    panel.appendChild(panel);
+    panel.appendChild(table);
 }
 
 init();
@@ -221,9 +215,9 @@ init();
 d3.selectAll("#selDataset").on("change", idChanged);
 
 function idChanged() {
-  let sampleID = d3.select("#selDataset").node().value;
+    let sampleID = d3.select("#selDataset").node().value;
 
-  d3.selectAll("#table").remove();
+    d3.selectAll("#table").remove();
 
-  retrieve(sampleID);
+    retrieve(sampleID);
 }
